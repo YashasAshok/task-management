@@ -1,1 +1,6 @@
-<p>main-list works!</p>
+<app-task-item 
+    *ngFor="let task of tasks"  
+    [task]= "task"  
+    (onDeleteTask) = "handleDelete(task)"
+    >
+</app-task-item>

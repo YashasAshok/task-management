@@ -1,0 +1,21 @@
+<div class="task">
+  <h3>
+    {{ task?.title }}
+    <span
+      class="status-badge"
+      [ngClass]="{
+        'status-pending': task?.status === 'Pending',
+        'status-completed': task?.status === 'Completed'
+      }"
+      aria-label="status"
+    >
+      {{ task?.status }}
+    </span>
+  </h3>
+  <div>
+    <button (click)="onClick(task)">
+      delete
+    </button>
+  </div>
+  <p>{{ task?.dueDate | date:'medium' }}</p>
+</div>

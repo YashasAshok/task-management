@@ -10,4 +10,6 @@ import { MainList } from '../main-list/main-list';
 })
 export class CommonLayout {
   @Input() pageTitle: string = '';
+
+  
 }
