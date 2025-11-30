@@ -1,0 +1,36 @@
+<section class="add-task-card" aria-labelledby="addTaskTitle">
+  <h3 id="addTaskTitle">Add New Task</h3>
+
+  <form (ngSubmit)="onSubmit()" #f="ngForm" class="add-task-form" novalidate>
+    <div class="row">
+      <label>
+        Title
+        <input name="title" [(ngModel)]="form.title" required placeholder="Task title" />
+      </label>
+
+      <label>
+        Due date
+        <input name="dueDate" type="date" [(ngModel)]="form.dueDate" required />
+      </label>
+    </div>
+
+    <label class="full">
+      Description
+      <textarea name="description" [(ngModel)]="form.description" placeholder="Optional description"></textarea>
+    </label>
+
+    <label>
+      Status
+      <select name="status" [(ngModel)]="form.status">
+        <option value="Pending">Pending</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Completed">Completed</option>
+      </select>
+    </label>
+
+    <div class="actions">
+      <button type="submit" [disabled]="submitting || !form.title || !form.dueDate">Add Task</button>
+      <div class="error" *ngIf="error">{{ error }}</div>
+    </div>
+  </form>
+</section>
